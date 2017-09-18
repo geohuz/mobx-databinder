@@ -52,9 +52,9 @@ mobx Provider:
 
 这里Provider的属性变量是store, 与binderCreator的store相对应.
 
-loadComponent: 一个指示当前正在执行远程调用的组件.
+loadComponent: 一个指示当前正在执行远程调用的组件. 具体的例子请参考demo目录, 您可以通过这里的配置来实现调用自己的调用提示.
 
-errorComponents: 默认包含两种不同的错误指示组件, key表示一个错误提示的方式, 实际如何实现由组件使用者定义组件来完成. popup: 弹窗, inplace: 在当前组件位置显示. 注意这里的popup/inplace会被后续的包裹组件属性errorPlacement所引用. 所以此处是动态的配置, 比如您可以再添加一个key, 'foo': ErrorFoo, 在后续的包裹组件处引用即可, 此时相当于你又添加了一种错误提示方式.
+errorComponents: 不同的错误指示组件的配置, 具体的例子请参考demo目录, 您可以通过这里的配置来实现调用自己的错误提示. key表示一个错误提示的方式, 实际如何实现由组件使用者定义组件来完成. popup: 弹窗, inplace: 在当前组件位置显示. 注意这里的popup/inplace会被后续的包裹组件属性errorPlacement所引用. 所以此处是动态的配置, 比如您可以再添加一个key, 'foo': ErrorFoo, 在后续的包裹组件处引用即可, 此时相当于你又添加了一种错误提示方式.
 
 
 ## 包裹任意组件以使得该组件'自动'获得调用指示和错误提示的功能
