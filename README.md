@@ -77,7 +77,7 @@ const LoginButton = ({bindData}) =>
   <Button raised color='primary' onClick={bindData}>请登录</Button>
 ```
 
-api: 被包裹组件要调用的远程api方法. 此处和store里的某个ajax api调用方法一致, 比如 store.auth.login
+api: 被包裹组件要调用的远程api方法. 此处和store里的某个ajax api调用方法一致, 比如 store.auth.login, 这个方法同时以bindData的属性暴露给被包裹组件, 被包裹组件可以通过调用bindData来执行. 
 
 errorPlacement: 错误组件的放置方式. 此处和binderCreator里的errorComponents里的某个key对应. 指示要使用哪种错误提示方式.
 
