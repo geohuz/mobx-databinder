@@ -1,15 +1,19 @@
-import React, {Component} from 'react'
-import {render} from 'react-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
+import allStore from './store/allStore.js'
+import {Provider} from 'mobx-react'
+import {MuiThemeProvider, createMuiTheme} from 'material-ui/styles'
 
-import Example from '../../src'
+const theme = createMuiTheme()
 
-class Demo extends Component {
-  render() {
-    return <div>
-      <h1>mobx-databinder Demo</h1>
-      <Example/>
-    </div>
-  }
-}
+const Main = () =>
+  <MuiThemeProvider theme={theme}>
+    <Provider store={allStore}>
+      <App />
+    </Provider>
+  </MuiThemeProvider>
 
-render(<Demo/>, document.querySelector('#demo'))
+ReactDOM.render(<Main />, document.getElementById('demo'));
+registerServiceWorker();

@@ -1,6 +1,6 @@
 {
   "name": "mobx-databinder",
-  "version": "1.0.0",
+  "version": "1.0.7",
   "description": "mobx-databinder React component",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -18,7 +18,16 @@
     "test:coverage": "nwb test-react --coverage",
     "test:watch": "nwb test-react --server"
   },
-  "dependencies": {},
+  "dependencies": {
+    "axios": "^0.16.2",
+    "jwt-decode": "^2.2.0",
+    "material-ui": "^1.0.0-beta.10",
+    "mobx": "^3.2.2",
+    "mobx-react": "^4.2.2",
+    "mobx-state-tree": "^1.0.0",
+    "ramda": "^0.24.1",
+    "recompose": "^0.25.0"
+  },
   "peerDependencies": {
     "react": "15.x"
   },
@@ -27,7 +36,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
   },
-  "author": "",
+  "author": "geohuz",
   "homepage": "",
   "license": "MIT",
   "repository": "",
