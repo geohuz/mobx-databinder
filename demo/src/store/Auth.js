@@ -4,7 +4,7 @@ import {APICall, dataApi} from './apiBase'
 
 const Auth = types.model("Auth", {
   user: '13701240303',
-  pass: '123456',
+  pass: '12356',
   token: '',
   entity: '',
 }).actions(self => ({
