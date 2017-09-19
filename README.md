@@ -22,7 +22,7 @@ npm install mobx-databinder
 import binderCreator from 'mobx-databinder'
 
 const Binder = binderCreator(
-  { store: 'store', 
+  { store: 'appStore', 
     loadComponent: LoadSpinner, 
     errorComponents: {
       'popup': ErrorPopup, 
@@ -45,12 +45,12 @@ const allStore = {
 
 mobx Provider: 
 ```
-  <Provider store={allStore}>
+  <Provider appStore={allStore}>
       <App />
     </Provider>
 ```
 
-这里Provider的属性变量是store, 与binderCreator的store相对应.
+这里Provider的属性变量是appStore, 与binderCreator的appStore相对应.
 
 loadComponent: 一个指示当前正在执行远程调用的组件. 具体的例子请参考demo目录, 您可以通过这里的配置来实现调用自己的调用提示.
 
@@ -66,7 +66,7 @@ inplace: 在当前组件位置显示.
 
 ```
  <Binder component={LoginButton}
-   api={store.auth.login}
+   api={auth.login}
    errorPlacement='popup'
    autoFetch={false}
       />
@@ -82,7 +82,7 @@ const LoginButton = ({bindData}) =>
   <Button raised color='primary' onClick={bindData}>请登录</Button>
 ```
 
-api: 被包裹组件要调用的远程api方法. 此处和store里的某个ajax api调用方法一致, 比如 store.auth.login, 这个方法同时以bindData的属性暴露给被包裹组件, 被包裹组件可以通过调用bindData来执行这个api方法.
+api: 被包裹组件要调用的远程api方法. 此处和store里的某个ajax api调用方法一致, 比如 auth.login, 这个方法同时以bindData的属性暴露给被包裹组件, 被包裹组件可以通过调用bindData来执行这个api方法.
 
 errorPlacement: 错误组件的放置方式. 此处和binderCreator里的errorComponents里的某个key对应. 指示要使用哪种错误提示方式. 注意当前版本inplace这个key与在当前组件位置显示的逻辑有关. 凡是需要直接在组件位置显示错误信息的设计都要保持inplace这个键名. 如果您选择其他其他键名, 则显示逻辑和popup的方式一致. 可以参考demo了解不同的显示方式.
 
