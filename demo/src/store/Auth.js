@@ -3,8 +3,8 @@ import jwt_decode from 'jwt-decode'
 import {APICall, dataApi} from './apiBase'
 
 const Auth = types.model("Auth", {
-  user: '13701240303',
-  pass: '12356',
+  user: '40303',
+  pass: '',
   token: '',
   entity: '',
 }).actions(self => ({

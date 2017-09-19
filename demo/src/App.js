@@ -2,20 +2,7 @@
 import React from 'react';
 import Button from 'material-ui/Button'
 import { observer, inject } from 'mobx-react'
-import binderCreator from '../../src'
-import LoadSpinner from './components/Spinner'
-import ErrorPopup from './components/ErrorPopup'
-import ErrorInplace from './components/ErrorInplace'
-
-const Binder = binderCreator(
-  { store: 'appStore', 
-    loadComponent: LoadSpinner, 
-    errorComponents: {
-      'popup': ErrorPopup, 
-      'inplace': ErrorInplace
-    }
-  }
-)
+import Binder from './utils'
 
 const Orders = ({appStore: {orderStore}}) => {
 return (
