@@ -10,7 +10,7 @@ const theme = createMuiTheme()
 
 const Main = () =>
   <MuiThemeProvider theme={theme}>
-    <Provider store={allStore}>
+    <Provider appStore={allStore}>
       <App />
     </Provider>
   </MuiThemeProvider>
