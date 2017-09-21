@@ -17,7 +17,7 @@ return (
       component={
         ({bindData})=> <Button raised color='primary' onClick={bindData}>刷新数据</Button>
       }
-      api={orderStore.loadOrders}
+      api={'orderStore.loadOrders'}
       errorPlacement='popup'
       autoFetch={false}
     />
@@ -31,7 +31,7 @@ const App = ({appStore: {orderStore, auth}}) => {
   return (
     <div>
       <Binder component={LoginButton}
-        api={auth.login}
+        api='auth.login'
         errorPlacement='popup'
         autoFetch={false}
       />

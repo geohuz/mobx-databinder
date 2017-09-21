@@ -2,9 +2,10 @@ import binderCreator from '../../src'
 import LoadSpinner from './components/Spinner'
 import ErrorPopup from './components/ErrorPopup'
 import ErrorInplace from './components/ErrorInplace'
+import {inject} from 'mobx-react'
 
 const Binder = binderCreator(
-  { store: 'appStore', 
+  { store: 'appStore',
     loadComponent: LoadSpinner, 
     errorComponents: {
       'popup': ErrorPopup, 

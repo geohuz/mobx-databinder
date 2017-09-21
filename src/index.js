@@ -12,7 +12,7 @@ const withLoad =
     withHandlers({
       bindData: (props) => () => {
         props.setLoading(true)
-        props.api()
+        props.api.split('.').reduce((o,i)=>o[i], props[props.store])()
         .then(res => {
           props.setLoading(false)
         })
@@ -52,7 +52,8 @@ const Databinder = (props) => {
 const withConfigs = (configObj) =>
   compose(
     inject(configObj.store),
-    withProps(R.omit('store', configObj))
+    // withProps('store', configObj))
+    withProps(configObj)
   )
 
 const binderCreator = ({store, loadComponent, errorComponents}) => 
