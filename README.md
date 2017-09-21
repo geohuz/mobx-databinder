@@ -34,7 +34,7 @@ const Binder = binderCreator(
 
 ## 参数说明
 
-store: mobx的状态对象. 建议使用mobx Provider所指定的根store, 以让它包裹的子组件的后续操作中可以自由选择任意store. 比如下面的代码:
+store: mobx的状态对象store. 建议使用mobx Provider所指定的根store, 以让它包裹的子组件的后续操作中可以自由选择任意store. 比如下面的代码:
 
 ```
 const allStore = {
@@ -66,7 +66,7 @@ inplace: 在当前组件位置显示.
 
 ```
  <Binder component={LoginButton}
-   api={auth.login}
+   api={'auth.login'}
    errorPlacement='popup'
    autoFetch={false}
       />
