@@ -12,7 +12,7 @@ const withLoad =
     withHandlers({
       bindData: (props) => () => {
         props.setLoading(true)
-        props.api.split('.').reduce((o,i)=>o[i], props[props.store])()
+        return props.api.split('.').reduce((o,i)=>o[i], props[props.store])()
         .then(res => {
           props.setLoading(false)
         })
@@ -27,7 +27,7 @@ const withLoad =
       }
     }),
     lifecycle({
-      componentWillMount() {
+      componentDidMount() {
         this.props.autoFetch && this.props.bindData() 
       }
     })
