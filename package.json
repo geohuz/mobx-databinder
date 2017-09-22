@@ -1,6 +1,6 @@
 {
   "name": "mobx-databinder",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "mobx-databinder React component",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -37,6 +37,7 @@
     "react-dom": "^15.6.1"
   },
   "author": "geohuz",
+  "url": "https://github.com/geohuz/mobx-databinder",
   "homepage": "",
   "license": "MIT",
   "repository": "",
