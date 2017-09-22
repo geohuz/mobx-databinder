@@ -86,7 +86,7 @@ api: 被包裹组件要调用的远程api方法. 此处和store里的某个ajax 
 
 errorPlacement: 错误组件的放置方式. 此处和binderCreator里的errorComponents里的某个key对应. 指示要使用哪种错误提示方式. 注意当前版本inplace这个key与在当前组件位置显示的逻辑有关. 凡是需要直接在组件位置显示错误信息的设计都要保持inplace这个键名. 如果您选择其他其他键名, 则显示逻辑和popup的方式一致. 可以参考demo了解不同的显示方式.
 
-autoFetch (true/false): 是否自动执行远程api方法. 在设计异步调用的UI时, 可能有两种方式去调用异步api, 一种在componentWillMount时自动执行, 一种是以某种事件处理函数(handler)的方式来执行(比如用户点击某个按钮). autoFetch为true时表示被包裹组件在componentWillMount时自动调用api; 为false则表示会以事件处理函数的方式来执行api, 在这种情况下, 被包裹的组件可以通过调用bindData属性去执行api. bindData属性会在包裹时被自动注入到被包裹组件.
+autoFetch (true/false): 是否自动执行远程api方法. 在设计异步调用的UI时, 可能有两种方式去调用异步api, 一种在componentDidMount时自动执行, 一种是以某种事件处理函数(handler)的方式来执行(比如用户点击某个按钮). autoFetch为true时表示被包裹组件在componentDidMount时自动调用api; 为false则表示会以事件处理函数的方式来执行api, 在这种情况下, 被包裹的组件可以通过调用bindData属性去执行api. bindData属性会在包裹时被自动注入到被包裹组件.
 
 
 # 其他说明
