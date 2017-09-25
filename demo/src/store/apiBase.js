@@ -3,7 +3,7 @@ import errorLog from './errorLog'
 import {process} from 'mobx-state-tree'
 
 export const dataApi = axios.create({
-  baseURL: 'http://123.57.154.181:3000',
+  baseURL: 'http://123.123.123.123:3000',
   timeout: 10000
 })
 
