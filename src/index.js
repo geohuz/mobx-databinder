@@ -10,7 +10,7 @@ const withLoad =
     withState('loading', 'setLoading', false),
     withState('error', 'setError', null),
     withHandlers({
-      bindData: (props) => () => {
+      apiTrigger: (props) => () => {
         props.setLoading(true)
         return props.api.split('.').reduce((o,i)=>o[i], props[props.store])()
         .then(res => {
@@ -28,7 +28,7 @@ const withLoad =
     }),
     lifecycle({
       componentDidMount() {
-        this.props.autoFetch && this.props.bindData() 
+        this.props.autoFetch && this.props.apiTrigger()
       }
     })
   )
