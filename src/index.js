@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import {withHandlers, withState, compose, lifecycle, withProps} from 'recompose'
-import {observer, inject} from 'mobx-react'
+//import {observer, inject} from 'mobx-react'
 import R from 'ramda'
 
 
@@ -12,9 +12,10 @@ const withLoad =
     withHandlers({
       apiTrigger: (props) => () => {
         props.setLoading(true)
-        return props.api.split('.').reduce((o,i)=>o[i], props[props.store])()
+        return props.api()
         .then(res => {
           props.setLoading(false)
+          return res
         })
         .catch(error => {
           props.setLoading(false)
@@ -33,7 +34,7 @@ const withLoad =
     })
   )
 
-const Databinder = (props) => {
+const WrapLoading = (props) => {
   return (
     <div>
       {
@@ -45,23 +46,21 @@ const Databinder = (props) => {
             : props.error!==null? React.createElement(props.errorComponents[props.errorPlacement], {...props})
               : React.createElement(props.component, props)
       }
+      {props.children}
     </div>
   )
 }
 
 const withConfigs = (configObj) =>
   compose(
-    inject(configObj.store),
-    // withProps('store', configObj))
     withProps(configObj)
   )
 
-const binderCreator = ({store, loadComponent, errorComponents}) => 
+const loaderCreator = ({store, loadComponent, errorComponents}) => 
   withConfigs({
-    store: store,
     loadComponent: loadComponent,
     errorComponents: errorComponents
-  })(withLoad(observer(Databinder)))
+  })(withLoad(WrapLoading))
   
 
-export default binderCreator
+export default loaderCreator

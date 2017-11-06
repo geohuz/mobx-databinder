@@ -7,12 +7,3 @@ export const dataApi = axios.create({
   timeout: 10000
 })
 
-export const APICall = (caller, afterSuccCall) =>  process(function* () {
-  try {
-    let res = yield caller()
-    afterSuccCall(res)
-  } catch (e) {
-    errorLog(e)
-    throw(e)
-  }
-})
